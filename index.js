@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 const authRoutes = require("./src/Routes/auth");
+const contentRoutes = require("./src/Routes/content");
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/content", contentRoutes);
 
 const PORT = process.env.PORT || 5000;
 
