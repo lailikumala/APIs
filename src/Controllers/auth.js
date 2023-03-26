@@ -16,7 +16,8 @@ module.exports = {
   login: async (req, res) => {
     try {
       const login = await authModel.login(req.body);
-      if (login == "Failed to Login") results.response(res, 400, login);
+      if (login == "Failed to Login")
+        results.response(res, 400, { message: login });
       else
         results.response(res, 200, {
           message: "Login Successful",
